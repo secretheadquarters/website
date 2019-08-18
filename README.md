@@ -1,3 +1,3 @@
 # Website
 
-Hosted onm github pages at https://secretheadquarters.github.io/website/
+Hosted on github pages at https://secretheadquarters.github.io/website/
