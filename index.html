@@ -23,7 +23,7 @@ title: Secret Headquarters
         </tr>
 </table>
 
-<p onclick="checkColours()">Click me to check the grid.</p>
+<p onclick="checkColours()">Let me in!</p>
 
 <script>
 function changeColour(element) {
@@ -55,8 +55,8 @@ function checkColours()
     table.rows[2].cells[1].style.backgroundColor + " " +
     table.rows[2].cells[2].style.backgroundColor;
     
-  if (colours == answer) { alert("Correct") }
-  else { alert("Incorrect; " + colours + " is not the same as " + answer + " try again!") }
+  if (colours == answer) { window.location.href = "{{site.baseurl}}/agent-e/one.html" }
+  else { alert("Incorrect: try again!") }
 }
 </script>
 </div>
