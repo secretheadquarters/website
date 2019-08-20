@@ -3,5 +3,14 @@ layout: default
 title: Secret Headquarters
 ---
 <div align="center">
-    <p class="instructions"> Enter your agent ID </p>
+    <p class="instructions"> Enter your agent ID: </p>
+    <input type="text" id="agentid"/><br/>
+    <button type="button" onClick="letmein()">Log in</button>
+    
+    <script>
+    function letmein() {
+        agentid = document.getElementById("agentid").value;
+        alert("Agent ID is " + agentid);
+    }
+    </script>
 </div>

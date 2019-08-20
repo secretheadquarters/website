@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.instructions {
+    font-family: monospace;
+}
+
 table.rubiks tr td {
     padding-bottom: 30%;
 }
