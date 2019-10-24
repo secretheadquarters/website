@@ -1,0 +1,74 @@
+---
+layout: default
+title: Scytale scrambling
+---
+<div align="center">
+    <h1>{{page.title}}</h1>
+
+    <label for="columns">Number of columns</label>
+    <input id="columns" type="number" list="defaultColumns" placeholder="6">
+    
+    <datalist id="defaultColumns">
+      <option value="1">
+      <option value="2">
+      <option value="3">
+      <option value="4">
+      <option value="5">
+      <option value="6">
+      <option value="7">
+      <option value="8">
+      <option value="9">
+      <option value="10">
+      <option value="11">
+      <option value="12">
+      <option value="13">
+      <option value="14">
+      <option value="15">
+    </datalist>
+    <br/>
+    <br/>
+    <label for="plaintext">Plaintext</label>
+    <br/>
+    <textarea id="plaintext" placeholder="Enter plaintext here..." rows="10" cols="80"></textarea>
+    <br/>
+    <button type="button" onClick="encode()">Encode</button>
+    <br/>
+    
+    <br/>
+    <label for="cyphertext">Cyphertext</label>
+    <br>
+    <textarea id="cyphertext" placeholder="Enter cyphertext here..." rows="10" cols="80"></textarea>
+    <br/>
+    <button type="button" onClick="decode()">Decode</button>
+    
+    <script>
+    function encode() {
+        var plaintext = document.getElementById("plaintext").value.trim();
+        var cyphertext = "";
+        for (var ii=0; ii < plaintext.length; ii++)
+        {
+            ascii = plaintext.charCodeAt(ii);
+            cyphertext = cyphertext + ascii.toString().padStart(3) + " ";
+        }
+        
+        var cyphertextbox = document.getElementById("cyphertext");
+        cyphertextbox.value = cyphertext;
+    }
+    
+    function decode() {
+        var cyphertext = document.getElementById("cyphertext").value.trim();
+        var plaintext = "";
+        var numbers = cyphertext.split(/\s+/);
+        for (var ii=0; ii < numbers.length; ii++)
+        {
+            var number = numbers[ii];
+            var charCode = parseInt(number, 10);
+            if (isNaN(charCode)) { plaintext = plaintext + "?"; }
+            else { plaintext = plaintext + String.fromCharCode(charCode); }
+        }
+        
+        var plaintextbox = document.getElementById("plaintext");
+        plaintextbox.value = plaintext;
+    }
+    </script>
+</div>

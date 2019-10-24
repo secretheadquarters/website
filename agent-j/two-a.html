@@ -1,0 +1,32 @@
+---
+layout: default
+title: Agent J Codeword Confirmation
+eyes: AGENT J
+next: /agent-j/three.html
+---
+<div align="center">
+    <h1>Agent J</h1>
+    
+    <p>
+    You sent Secret Headquarters a secret codeword so that they could prove who they were when they communicated with you. 
+    </p>
+    <p>
+    Your codeword was FLAGS
+    </p>
+    <p>
+    Decode the message above then click the appropriate button below.
+    </p>
+
+    <button type="button" onClick="codewordCorrect()">Codeword correct</button>
+    <button type="button" onClick="codewordIncorrect()">Codeword incorrect</button>
+    
+    <script>
+    function codewordCorrect() {
+        alert("ACCESS GRANTED. Codeword is correct.");
+    }
+
+    function codewordIncorrect() {
+        alert("ACCESS DENIED. Codeword is not correct.");
+    }
+    </script>
+</div>

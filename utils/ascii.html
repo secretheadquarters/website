@@ -1,0 +1,56 @@
+---
+layout: default
+title: ASCII code
+---
+<div align="center">
+    <h1>ASCII Code</h1>
+    
+    <p>
+    Convert between ASCII and text.
+    </p>
+    
+    <label for="plaintext">Plaintext</label>
+    <br/>
+    <textarea id="plaintext" placeholder="Enter plaintext here..." rows="10" cols="80"></textarea>
+    <br/>
+    <button type="button" onClick="toAscii()">Convert to ASCII</button>
+    
+    <br/>
+    <br/>
+    <label for="cyphertext">Cyphertext</label>
+    <br>
+    <textarea id="cyphertext" placeholder="Enter ASCII numbers here..." rows="10" cols="80"></textarea>
+    <br/>
+    <button type="button" onClick="fromAscii()">Convert to text</button>
+    
+    <script>
+    function toAscii() {
+        var plaintext = document.getElementById("plaintext").value.trim();
+        var cyphertext = "";
+        for (var ii=0; ii < plaintext.length; ii++)
+        {
+            ascii = plaintext.charCodeAt(ii);
+            cyphertext = cyphertext + ascii.toString().padStart(3) + " ";
+        }
+        
+        var cyphertextbox = document.getElementById("cyphertext");
+        cyphertextbox.value = cyphertext;
+    }
+    
+    function fromAscii() {
+        var cyphertext = document.getElementById("cyphertext").value.trim();
+        var plaintext = "";
+        var numbers = cyphertext.split(/\s+/);
+        for (var ii=0; ii < numbers.length; ii++)
+        {
+            var number = numbers[ii];
+            var charCode = parseInt(number, 10);
+            if (isNaN(charCode)) { plaintext = plaintext + "?"; }
+            else { plaintext = plaintext + String.fromCharCode(charCode); }
+        }
+        
+        var plaintextbox = document.getElementById("plaintext");
+        plaintextbox.value = plaintext;
+    }
+    </script>
+</div>

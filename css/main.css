@@ -1,17 +1,27 @@
 body {
     margin: 60px auto;
     width: 70%;
+    font-family: monospace;
 }
 
 .protectivemarking {
   color:red;
   font-weight: bold;
-  font-family: monospace;
   text-align: center;
 }
 
-.instructions {
-    font-family: monospace;
+button.button {
+    border: groove;
+    border-color: blue;
+    border-radius: 5px;
+    background-image: linear-gradient(-45deg, LightSteelBlue, SteelBlue);
+    width: 50%;
+    margin: 10px;
+    padding: 1%
+}
+
+button {
+    margin: 10px;
 }
 
 table.rubiks tr td {

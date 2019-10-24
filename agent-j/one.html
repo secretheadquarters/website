@@ -1,7 +1,28 @@
 ---
 layout: default
 title: Agent J Access Page
+eyes: AGENT J
+next: /agent-j/two.html
 ---
 <div align="center">
     <h1>Agent J</h1>
+    
+    <p>
+    Examine your copy of Landranger 153 carefully. Locate the hidden codeword and enter it below.
+    </p>
+    
+    <label for="codeword">Codeword: </label>
+    <input type="text" id="codeword"/>
+    <br/>
+    <button type="button" onClick="letmein()">Log in</button>
+    
+    <script>
+    function letmein() {
+        codeword = document.getElementById("codeword").value.trim();
+        codewordlower = codeword.toLowerCase();
+        if (codeword == "") { alert("Type the codeword in the box"); return; }
+        if (codewordlower == "purple flame" || codewordlower == "purpleflame") { window.location.href = "{{site.baseurl}}{{page.next}}"; return; }
+        alert("ACCESS DENIED. '" + codeword + "' is not correct.");
+    }
+    </script>
 </div>
