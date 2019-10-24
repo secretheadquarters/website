@@ -6,27 +6,104 @@ next: /agent-j/three.html
 ---
 <div align="center">
     <h1>Agent J</h1>
-    
-    <p>
-    You sent Secret Headquarters a secret codeword so that they could prove who they were when they communicated with you. 
-    </p>
-    <p>
-    Your codeword was FLAGS
-    </p>
-    <p>
-    Decode the message above then click the appropriate button below.
-    </p>
+    <p> Welcome Agent J</p>
+    <p> Here are instructions for a new kind of code. This code can only be decoded if you know the correct wodeword. </p>
+    <p> First, choose a codeword. For this example, the codeword is BLUE STEEL. </p>
+    <p> Write out the alphabet in order at the top of the page.</p>
+    <p> Below this, write the letters of the codeword in turn. If you've already written a letter, skip it.</p>
+    <p> Then write all the remaining letters of the alphabet in order, starting at the other end. </p>
+    <p> You will end up with a cypher table mapping each letter of the alphabet to a coded letter.</p>
+    <p> Here is an example cypher table based on the codeword BLUE STEEL.</p>
+    <table border="thin black solid" class="cyphertable">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <col width="3.8%">
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+        </tr>
+        <tr>
+            <td><b>B </b></td>
+            <td><b>L </b></td>
+            <td><b>U </b></td>
+            <td><b>E </b></td>
+            <td><b>S </b></td>
+            <td><b>T </b></td>
+            <td>Z</td>
+            <td>Y</td>
+            <td>X</td>
+            <td>W</td>
+            <td>V</td>
+            <td>R</td>
+            <td>Q</td>
+            <td>P</td>
+            <td>O</td>
+            <td>N</td>
+            <td>M</td>
+            <td>K</td>
+            <td>J</td>
+            <td>I</td>
+            <td>H</td>
+            <td>G</td>
+            <td>F</td>
+            <td>D</td>
+            <td>C</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td colspan=6 align="center">Unique letters of BLUE STEEL</td>
+            <td colspan=20 align="center">The rest of the alphabet backwards</td>
+        </tr>
+    </table>
+    <p> To encode a message, take each letter of your message, look it up on the top row, and write down the letter on the bottom row.</p>
+    <p> For example: "HELLO AGENT J" will be encoded as "YSRRO BWSPP W"</p>
+    <p> For practice, use the table above to encode "MESSAGE RECEIVED"</p>
 
-    <button type="button" onClick="codewordCorrect()">Codeword correct</button>
-    <button type="button" onClick="codewordIncorrect()">Codeword incorrect</button>
-    
-    <script>
-    function codewordCorrect() {
-        alert("ACCESS GRANTED. Codeword is correct.");
-    }
-
-    function codewordIncorrect() {
-        alert("ACCESS DENIED. Codeword is not correct.");
-    }
-    </script>
 </div>
