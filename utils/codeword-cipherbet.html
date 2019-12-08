@@ -20,19 +20,18 @@ title: Codeword cipherbet
     <br/>
     <br/>
 
-    <label for="plaintext">Plaintext</label>
+    <label for="input">Input</label>
     <br/>
-    <textarea id="plaintext" placeholder="Enter plaintext here..." rows="10" cols="80"></textarea>
+    <textarea id="input" placeholder="Enter message here..." rows="10" cols="80"></textarea>
     <br/>
-    <button type="button" onClick="toCipherbet()">Encode</button>
+    <button type="button" onClick="encode('encode')">Encode</button>
+    <button type="button" onClick="encode('decode')">Decode</button>
     
     <br/>
-    <br/>
-    <label for="ciphertext">Ciphertext</label>
+    <label for="output">Output</label>
     <br>
-    <textarea id="ciphertext" placeholder="Enter ciphertext here..." rows="10" cols="80"></textarea>
+    <textarea id="output" placeholder="Result appears here..." rows="10" cols="80"></textarea>
     <br/>
-    <button type="button" onClick="fromcipherbet()">Decode</button>
     
     <script>
         function unique(text) {
@@ -52,15 +51,27 @@ title: Codeword cipherbet
             return cipherbet;
         }
 
-        function makeMap(alphabet, cipherbet) {
+        function makeMap(alphabet, cipherbet, direction) {
             if (alphabet.length != cipherbet.length) {
                 throw "Alphabet and cipherbet lengths are different. "
             }
 
+            var source = "";
+            var target = "";
+            if (direction == 'encode') {
+                source = alphabet;
+                target = cipherbet;
+            } else if (direction == 'decode') {
+                source = cipherbet;
+                target = alphabet;
+            } else {
+                throw "Direction '" + direction + "' not recognised. Valid values are 'encode', 'decode'."
+            }
+
             var code = {};
-            for (let index = 0; index < alphabet.length; index++) {
-                code[alphabet[index].toLowerCase()] = cipherbet[index].toLowerCase();
-                code[alphabet[index].toUpperCase()] = cipherbet[index].toUpperCase();
+            for (let index = 0; index < source.length; index++) {
+                code[source[index].toLowerCase()] = target[index].toLowerCase();
+                code[source[index].toUpperCase()] = target[index].toUpperCase();
             }
 
             return code;
@@ -82,43 +93,27 @@ title: Codeword cipherbet
             }
         }
 
-        function toCipherbet() {
+        function encode(direction) {
             var codeword = document.getElementById("codeword").value.trim().toLowerCase().replace(/\s*/gm, '');
-            var plaintext = document.getElementById("plaintext").value.trim();
+            var input = document.getElementById("input").value.trim();
             
             var alphabet = "abcdefghijklmnopqrstuvwxyz";
             var cipherbet = makeCipherbet(alphabet, codeword);
-            var map = makeMap(alphabet, cipherbet);
+            var map = makeMap(alphabet, cipherbet, direction);
 
             document.getElementById("mapping").innerHTML = mapToText(map, alphabet, cipherbet, false);
 
-            var ciphertext = "";
-            for (let letter of plaintext) {
+            var output = "";
+            for (let letter of input) {
                 if (letter in map) {
-                    ciphertext += map[letter];
+                    output += map[letter];
                 } else {
-                    ciphertext += letter;
+                    output += letter;
                 }
             }
 
-            var ciphertextbox = document.getElementById("ciphertext");
-            ciphertextbox.value = ciphertext;
-        }
-        
-        function fromcipherbet() {
-            var ciphertext = document.getElementById("ciphertext").value.trim();
-            var plaintext = "";
-            var numbers = ciphertext.split(/\s+/);
-            for (var ii=0; ii < numbers.length; ii++)
-            {
-                var number = numbers[ii];
-                var charCode = parseInt(number, 10);
-                if (isNaN(charCode)) { plaintext = plaintext + "?"; }
-                else { plaintext = plaintext + String.fromCharCode(charCode); }
-            }
-            
-            var plaintextbox = document.getElementById("plaintext");
-            plaintextbox.value = plaintext;
+            var outputbox = document.getElementById("output");
+            outputbox.value = output;
         }
     </script>
 </div>
